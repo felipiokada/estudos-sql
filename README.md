@@ -43,6 +43,7 @@ SELECT * FROM tbcliente WHERE (BAIRRO = 'Jardins' AND IDADE > 30) OR (CIDADE = '
 
 SELECT DINSTINCT * FROM tbcliente WHERE CIDADE = 'Rio de Janeiro';
 SELECT * FROM tbcliente WHERE NOME = '%Pedro%';
+SELECT * FROM tbcliente WHERE NOME = 'João%';
 
 SELECT TOP 60 PERCENT * FROM tbproduto;
 SELECT MIN(QUANTIDADE_DE_UNIDADES) AS MENOR_QUANTIDADE FROM tbproduto;
