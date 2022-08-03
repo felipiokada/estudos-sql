@@ -10,6 +10,8 @@ SELECT * FROM CIDADE -> Seleciona TODOS os campos da tabela CIDADE
 SELECT NOME, ID, PRECO FROM tbproduto;
 SELECT NOME AS NOME_PRODUTO, PRECO AS PRECO_PRODUTO FROM tbproduto;
 SELECT NOME, ID FROM tbproduto LIMIT 5;
+SELECT * FROM tabela_de_clientes LIMIT 2,3; /*Informa que pegará 3 registros a partir da terceira posicão, pois ele considera o primeiro elemento o 0*/
+SELECT * FROM notas_fiscais WHERE DATA_VENDA = '2017-01-01' LIMIT 10;
 SELECT * FROM tbproduto WHERE EMBALAGEM='LATA';
 
 CREATE {DATABASE or SCHEMA} "nome da tabela"    <-- CRIA
@@ -62,4 +64,6 @@ EMBALAGEM (50),
 QUANTIDADE_DE_UNIDADE INT,
 VOLUME VARCHAR(40),
 DATA_REGISTRO DATETIME);
+
+
 
