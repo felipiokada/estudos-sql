@@ -1,6 +1,8 @@
 # estudos-sql
 Estudos sobre SQL
 
+CONTEÚDO RESUMIDO, MAS DESORGANIZADO. AO FINAL, ORGANIZAR EM ARQUIVOS SQL.
+
 MYSQL Workbench
 
 TABELA - PROCEDURES - TRIGGERS - VIEW
@@ -161,3 +163,19 @@ CASE
 ELSE 'BARATO'
 END
 ORDER BY EMBALAGEM;
+
+
+/*Veja o ano de nascimento dos clientes e classifique-os como: Nascidos antes de 1990 são velhos, nascidos entre 1990 e 
+1995 são jovens e nascidos depois de 1995 são crianças. Liste o nome do cliente e esta classificação.*/
+
+SELECT NOME, DATA_DE_NASCIMENTO, 
+CASE
+	WHEN YEAR(DATA_DE_NASCIMENTO) < 1990 THEN 'VELHO'
+    WHEN YEAR(DATA_DE_NASCIMENTO) >= 1990 AND YEAR(DATA_DE_NASCIMENTO) <= 1995 THEN 'JOVEM'
+    ELSE 'CRIANÇA'
+END CLASSIFICAÇÃO_IDADE
+FROM tabela_de_clientes;
+
+
+
+
