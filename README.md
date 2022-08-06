@@ -176,6 +176,10 @@ CASE
 END CLASSIFICAÇÃO_IDADE
 FROM tabela_de_clientes;
 
+----------JOIN-----------
 
+SELECT * FROM tabela_de_vendedores VENDEDORES
+INNER JOIN notas_fiscais NOTAS_FISCAIS
+ON NOTAS_FISCAIS.MATRICULA = VENDEDORES.MATRICULA;
 
 
