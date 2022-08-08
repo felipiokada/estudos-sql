@@ -219,3 +219,20 @@ INNER JOIN itens_notas_fiscais INF
 ON NF.NUMERO = INF.NUMERO
 GROUP BY YEAR(DATA_VENDA);
 
+/*RIGHT JOIN E LEFT JOIN*/
+SELECT CPF, COUNT(*) FROM tabela_de_clientes GROUP BY CPF;
+SELECT CPF, COUNT(*) FROM notas_fiscais GROUP BY CPF;
+
+SELECT A.CPF, A.NOME, COUNT(*) FROM tabela_de_clientes A
+INNER JOIN notas_fiscais B
+ON A.CPF = B.CPF
+GROUP BY A.CPF;
+
+/*Como o COUNT(*) conta direitinho a quantidade exata de registros? porque ele realiza a contagem depois das tabelas se unirem
+POR ISSO que contou Fábio Carvalho = 1*/
+SELECT A.CPF, A.NOME, COUNT(*) FROM tabela_de_clientes A
+LEFT JOIN notas_fiscais B
+ON A.CPF = B.CPF
+GROUP BY A.CPF;
+
+
