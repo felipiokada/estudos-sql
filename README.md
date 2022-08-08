@@ -235,4 +235,14 @@ LEFT JOIN notas_fiscais B
 ON A.CPF = B.CPF
 GROUP BY A.CPF;
 
+SELECT A.CPF, A.NOME, B.CPF FROM tabela_de_clientes A
+LEFT JOIN notas_fiscais B
+ON A.CPF = B.CPF
+GROUP BY A.CPF;
+
+SELECT A.CPF, B.NOME, B.CPF FROM notas_fiscais A
+RIGHT JOIN tabela_de_clientes B
+ON A.CPF = B.CPF
+GROUP BY A.CPF;
+
 
