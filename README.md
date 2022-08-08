@@ -197,3 +197,25 @@ INNER JOIN notas_fiscais B
 ON A.MATRICULA = B.MATRICULA
 GROUP BY NOME
 ORDER BY 'MAX NOTAS';
+
+/*OUTROS COMANDOS QUE SUBSTITUE INNER JOIN: RIGHT JOIN, LEFT JOIN, FULL JOIN*/
+/*SELECT * FROM A.tabela1, B.tabela2 ==> gera uma matriz cartesiana, combinando cada elemento da tabela1 com a tabela2*/
+
+/*Obtenha o faturamento anual da empresa.
+Leve em consideração que o valor financeiro das vendas consiste em multiplicar a quantidade pelo preço.*/
+
+/*PRIMEIRO PASSO: IDENTIFICAR AS TABELAS NECESSÁRIAS PARA ISSO*/
+SELECT * FROM notas_fiscais;
+SELECT * FROM itens_notas_fiscais;
+
+/*SEGUNDO PASSO: LISTAR ORGANIZADAMENTE O QUE ESTÁ SENDO FILTRADO*/
+SELECT CPF, YEAR(DATA_VENDA) AS ANO, B.*, QUANTIDADE*PRECO AS FATURAMENTO FROM notas_fiscais A
+INNER JOIN itens_notas_fiscais B
+ON A.NUMERO = B.NUMERO;
+
+/*TERCEIRO PASSO: FILTRAR O QUE FOI PEDIDO*/
+SELECT YEAR(DATA_VENDA) AS ANO, SUM(QUANTIDADE*PRECO) AS FATURAMENTO FROM notas_fiscais nf
+INNER JOIN itens_notas_fiscais INF
+ON NF.NUMERO = INF.NUMERO
+GROUP BY YEAR(DATA_VENDA);
+
