@@ -245,4 +245,8 @@ RIGHT JOIN tabela_de_clientes B
 ON A.CPF = B.CPF
 GROUP BY A.CPF;
 
-
+SELECT A.CPF, B.NOME, B.CPF FROM notas_fiscais A
+RIGHT JOIN tabela_de_clientes B
+ON A.CPF = B.CPF
+WHERE A.CPF IS NULL
+GROUP BY A.CPF;
