@@ -250,3 +250,13 @@ RIGHT JOIN tabela_de_clientes B
 ON A.CPF = B.CPF
 WHERE A.CPF IS NULL
 GROUP BY A.CPF;
+
+--MOSTRANDO O CROSSJOIN--
+SELECT COUNT(BAIRRO) FROM tabela_de_clientes;	/*15*/
+SELECT COUNT(BAIRRO) FROM tabela_de_vendedores;	/*4*/
+SELECT BAIRRO FROM tabela_de_clientes;
+SELECT BAIRRO FROM tabela_de_vendedores;
+
+/*CROSS JOIN*/
+SELECT tabela_de_clientes.BAIRRO, tabela_de_vendedores.BAIRRO FROM tabela_de_clientes, tabela_de_vendedores;	
+SELECT COUNT(*) FROM tabela_de_clientes, tabela_de_vendedores;	/*60*/
