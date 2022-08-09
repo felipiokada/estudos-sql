@@ -1,9 +1,9 @@
 # estudos-sql
 Estudos sobre SQL
 
-CONTEÚDO RESUMIDO, MAS DESORGANIZADO. AO FINAL, ORGANIZAR EM ARQUIVOS SQL.
-
-MYSQL Workbench
+CONTEÚDO RESUMIDO E COM FINS DE CONSULTA.
+ESTÁ DESORGANIZADO. AO FINAL CONCLUSIVO DOS MEUS ESTUDOS PARCIAIS SOBRE SQL UTILIZANDO MYSQL, ORGANIZAREI A PASTA COM
+O CONTEÚDO SEPARADO EM ARQUIVOS SQL.
 
 TABELA - PROCEDURES - TRIGGERS - VIEW
 
@@ -252,6 +252,18 @@ WHERE A.CPF IS NULL
 GROUP BY A.CPF;
 
 --MOSTRANDO O CROSSJOIN--
+
+SELECT NOME, BAIRRO FROM tabela_de_vendedores;
+SELECT BAIRRO, COUNT(*) FROM tabela_de_vendedores GROUP BY BAIRRO;	/*Tijuca, Jardins, Copacabana, Santo Amaro*/
+SELECT BAIRRO, COUNT(*) FROM tabela_de_clientes GROUP BY BAIRRO;	/*3 = Jardins, Tijuca, o resto é 1, não tem Copacabana*/
+
+SELECT tabela_de_vendedores.NOME,
+tabela_de_vendedores.BAIRRO,
+tabela_de_clientes.BAIRRO,
+tabela_de_clientes.NOME FROM tabela_de_vendedores INNER JOIN tabela_de_clientes
+ON tabela_de_vendedores.BAIRRO = tabela_de_clientes.BAIRRO
+ORDER BY tabela_de_vendedores.BAIRRO;	/*Aparecerá 7 (3 de Jardins, 3 da Tijuca e 1 de Santo Amaro)*/
+
 SELECT COUNT(BAIRRO) FROM tabela_de_clientes;	/*15*/
 SELECT COUNT(BAIRRO) FROM tabela_de_vendedores;	/*4*/
 SELECT BAIRRO FROM tabela_de_clientes;
@@ -260,3 +272,5 @@ SELECT BAIRRO FROM tabela_de_vendedores;
 /*CROSS JOIN*/
 SELECT tabela_de_clientes.BAIRRO, tabela_de_vendedores.BAIRRO FROM tabela_de_clientes, tabela_de_vendedores;	
 SELECT COUNT(*) FROM tabela_de_clientes, tabela_de_vendedores;	/*60*/
+
+
