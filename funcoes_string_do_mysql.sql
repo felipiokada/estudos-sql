@@ -26,3 +26,6 @@ SELECT INSTR(CPF, '1') AS RESULTADO_1 FROM tabela_de_clientes;
 SELECT CPF, INSTR(CPF, '1') AS RESULTADO_1, INSTR(CPF, '8') AS RESULTADO_8 FROM tabela_de_clientes;
 
 SELECT CONCAT(NOME, ' - CPF: ', CPF) AS `NOME E CPF` FROM tabela_de_clientes;
+
+/*Faça uma consulta listando o nome do cliente e o endereço completo (Com rua, bairro, cidade e estado).*/
+SELECT CONCAT(NOME, ' - Endereço: ', ENDERECO_1, ', ', BAIRRO, ', ', CIDADE, ', ', ESTADO) AS LUGAR FROM tabela_de_clientes;
