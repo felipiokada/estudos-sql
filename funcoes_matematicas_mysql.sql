@@ -12,3 +12,10 @@ SELECT RAND() AS RESULTADO;
 
 SELECT NUMERO, QUANTIDADE, PRECO, ROUND(QUANTIDADE * PRECO, 2) AS FATURAMENTO FROM itens_notas_fiscais;
 
+/*Na tabela de notas fiscais temos o valor do imposto. Já na tabela de itens temos
+ a quantidade e o faturamento. Calcule o valor do imposto pago no ano de 2016 arredondando para o menor inteiro.*/
+
+SELECT YEAR(DATA_VENDA) AS `ANO`, FLOOR(SUM((QUANTIDADE * PRECO) * IMPOSTO)) AS `IMPOSTO PAGO`
+FROM notas_fiscais A
+INNER JOIN itens_notas_fiscais B
+ON A.NUMERO = B.NUMERO AND YEAR(DATA_VENDA) = 2016;
