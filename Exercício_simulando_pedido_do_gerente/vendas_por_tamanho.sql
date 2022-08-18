@@ -1,0 +1,46 @@
+/* Relatório de vendas por tamanho
+	Pedido: Crie um relatório a pedido da área comercial da
+        empresa de sucos de frutas. A solicitação é um acompanhamento sobre as
+        vendas do ano de 2016 por sabores e eles gostariam de ver as informações
+        no seguinte modelo:
+        Na primeira coluna, são apresentados o tamanho dos sucos. Na segunda, o
+        ano analisado (2016). Na terceira coluna, temos a quantidade vendida no
+        ano todo. Os dados devem ser ordenados do maior para o menor
+        em relação a esta coluna. E, por fim, temos o percentual de participação
+        comparado ao total de vendas.
+ */
+
+/* É somente mudar o SABOR para TAMANHO no SELECT e GROUP BY do script 'vendas_por_sabor' */
+SELECT TAMANHO, DATE_FORMAT(DATA_VENDA, '%Y') AS ANO, SUM(QUANTIDADE) AS QUANTIDADE_VENDIDA,
+ROUND((SUM(QUANTIDADE) / (
+	SELECT SUM(QUANTIDADE) FROM tabela_de_produtos TP INNER JOIN itens_notas_fiscais INF
+	ON TP.CODIGO_DO_PRODUTO = INF.CODIGO_DO_PRODUTO
+	INNER JOIN notas_fiscais NF
+	ON INF.NUMERO = NF.NUMERO
+    WHERE YEAR(DATA_VENDA) = 2016)) * 100, 2) AS PARTICIPACAO
+FROM tabela_de_produtos TP INNER JOIN itens_notas_fiscais INF
+ON TP.CODIGO_DO_PRODUTO = INF.CODIGO_DO_PRODUTO
+INNER JOIN notas_fiscais NF
+ON INF.NUMERO = NF.NUMERO
+WHERE YEAR(DATA_VENDA) = 2016
+GROUP BY TAMANHO
+ORDER BY QUANTIDADE_VENDIDA DESC;
+
+/*
+SELECT VENDA_TAMANHO.TAMANHO, VENDA_TAMANHO.ANO, VENDA_TAMANHO.QUANTIDADE,
+ROUND((VENDA_TAMANHO.QUANTIDADE/VENDA_TOTAL.QUANTIDADE) * 100, 2) AS PARTICIPACAO FROM 
+(SELECT TP.TAMANHO, YEAR(NF.DATA_VENDA) AS ANO, SUM(INF.QUANTIDADE) AS QUANTIDADE FROM 
+TABELA_DE_PRODUTOS TP 
+INNER JOIN ITENS_NOTAS_FISCAIS INF ON TP.CODIGO_DO_PRODUTO = INF.CODIGO_DO_PRODUTO
+INNER JOIN NOTAS_FISCAIS NF ON NF.NUMERO = INF.NUMERO
+WHERE YEAR(NF.DATA_VENDA) = 2016
+GROUP BY TP.TAMANHO, YEAR(NF.DATA_VENDA)) AS VENDA_TAMANHO
+INNER JOIN 
+(SELECT YEAR(NF.DATA_VENDA) AS ANO, SUM(INF.QUANTIDADE) AS QUANTIDADE FROM 
+TABELA_DE_PRODUTOS TP 
+INNER JOIN ITENS_NOTAS_FISCAIS INF ON TP.CODIGO_DO_PRODUTO = INF.CODIGO_DO_PRODUTO
+INNER JOIN NOTAS_FISCAIS NF ON NF.NUMERO = INF.NUMERO
+WHERE YEAR(NF.DATA_VENDA) = 2016
+GROUP BY YEAR(NF.DATA_VENDA)) AS VENDA_TOTAL
+ON VENDA_TAMANHO.ANO = VENDA_TOTAL.ANO
+ORDER BY VENDA_TAMANHO.QUANTIDADE DESC; */
