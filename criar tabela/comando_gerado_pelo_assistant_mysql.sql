@@ -15,3 +15,14 @@ CREATE TABLE `vendas_suco`.`cliente` (
   PRIMARY KEY (`cpf`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
+
+/* criar a tabela de vendas*/
+CREATE TABLE `vendas_suco`.`vendas` (
+  `NUMERO` VARCHAR(5) NOT NULL,
+  `DATA` DATE NULL,
+  `CPF` VARCHAR(11) NOT NULL,
+  `MATRICULA` VARCHAR(5) NOT NULL,
+  `IMPOSTO` FLOAT NULL,
+  PRIMARY KEY (`NUMERO`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
