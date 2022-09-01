@@ -7,17 +7,12 @@ O CONTEÚDO SEPARANDO EM ARQUIVOS SQL.
 
 TABELA - PROCEDURES - TRIGGERS - VIEW
 
-SELECT * FROM CIDADE -> Seleciona TODOS os campos da tabela CIDADE
-
 SELECT * FROM tabela_de_clientes LIMIT 2,3; /*Informa que pegará 3 registros a partir da terceira posicão, pois ele considera o primeiro elemento o 0*/
 SELECT * FROM notas_fiscais WHERE DATA_VENDA = '2017-01-01' LIMIT 10;
 SELECT * FROM tbproduto WHERE EMBALAGEM='LATA';
 
 CREATE {DATABASE or SCHEMA} "nome da tabela"    <-- CRIA
 DROP {DATABASE or SCHEMA} "nome da tabela"      <-- DELETA (cuidado)
-
-AUTO_IMCREMENT
-DATETIME
 
 DELETE FROM tbprodutos WHERE id='0000000000000001';
 DELETE FROM tbproduto WHERE PRECO_LISTA BETWEEN 10 AND 12;
@@ -96,8 +91,6 @@ SELECT CPF, COUNT(*) AS 'TOTAL DE COMPRAS' FROM notas_fiscais GROUP BY CPF;
 SELECT CPF, COUNT(*) AS 'TOTAL DE COMPRAS' FROM notas_fiscais
 WHERE YEAR(DATA_VENDA) = 2016 GROUP BY CPF
 HAVING COUNT(*) > 2000;
-
-
 
 /*CASE - WHEN ... THEN ... - ELSE - END*/
 SELECT * FROM tabela_de_produtos;
