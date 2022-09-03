@@ -9,7 +9,6 @@ TABELA - PROCEDURES - TRIGGERS - VIEW
 
 SELECT * FROM tabela_de_clientes LIMIT 2,3; /*Informa que pegará 3 registros a partir da terceira posicão, pois ele considera o primeiro elemento o 0*/
 SELECT * FROM notas_fiscais WHERE DATA_VENDA = '2017-01-01' LIMIT 10;
-SELECT * FROM tbproduto WHERE EMBALAGEM='LATA';
 
 CREATE {DATABASE or SCHEMA} "nome da tabela"    <-- CRIA
 DROP {DATABASE or SCHEMA} "nome da tabela"      <-- DELETA (cuidado)
@@ -25,6 +24,7 @@ SELECT TOP 2 * FROM tbproduto WHERE QUANTIDADE_DE_UNIDADES > 4;
 SELECT * FROM tbproduto WHERE QUANTIDADE_DE_UNIDADES <> 10; /*selecione todos os registros que sejam tenham qnt. de unidades diferentes de 10*/
 SELECT * FROM tbproduto WHERE PRECO_LISTA > 20 AND PRECO_LISTA < 19;
 SELECT * FROM tbproduto WHERE PRECO_LISTA BETWEEN 10 AND 11;
+SELECT * FROM tbproduto WHERE EMBALAGEM='LATA';
 SELECT * FROM tbcliente WHERE NOME > "Rafa";
 
 SELECT * FROM tbcliente WHERE DATA_NASCIMENTO < '1990-05-13';
