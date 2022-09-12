@@ -19,10 +19,21 @@ SELECT * FROM tbcliente WHERE IDADE > 23 and SEXO = 'F';
 SELECT * FROM tbcliente WHERE BAIRRO = 'Jardins' OR BAIRRO = 'Cidade Nova';
 SELECT * FROM tbcliente WHERE (BAIRRO = 'Jardins' AND IDADE > 30) OR (CIDADE = 'Rio de Janeiro');
 
-SELECT DISTINCT * FROM tbcliente WHERE CIDADE = 'Rio de Janeiro';
+SELECT DISTINCT * FROM tbcliente WHERE CIDADE = 'Rio de Janeiro'; /* DISTINCT mostrará valores em coordenadas cartesianas */
 SELECT * FROM tbcliente WHERE NOME LIKE '%Pedro%';  /*<-- tem Pedro*/
 SELECT * FROM tbcliente WHERE NOME LIKE 'João%';    /*<-- começam com João*/
 SELECT * FROM tbcliente WHERE NOME LIKE '%João';    /*<-- terminam com João*/
 
 SELECT MIN(QUANTIDADE_DE_UNIDADES) AS MENOR_QUANTIDADE FROM tbproduto;
 SELECT MAX(QUANTIDADE_DE_UNIDADES) AS MAIOR_QUANTIDADE FROM tbproduto;
+
+SELECT * FROM tabela_de_produtos ORDER BY PRECO_DE_LISTA;
+SELECT * FROM tabela_de_produtos ORDER BY PRECO_DE_LISTA DESC;
+SELECT * FROM tabela_de_produtos ORDER BY NOME_DO_PRODUTO, PRECO_DE_LISTA;
+SELECT * FROM tabela_de_produtos ORDER BY NOME_DO_PRODUTO DESC, PRECO_DE_LISTA;
+SELECT * FROM tabela_de_produtos ORDER BY NOME_DO_PRODUTO DESC, PRECO_DE_LISTA DESC;
+SELECT * FROM tabela_de_produtos WHERE NOME_DO_PRODUTO LIKE '%Linha Refrescante%' ORDER BY PRECO_DE_LISTA;
+
+SELECT * FROM tabela_de_produtos WHERE NOME_DO_PRODUTO LIKE '%Linha Refrescante - 1 Litro - Morango/Limão%'; /*OU*/
+SELECT * FROM tabela_de_produtos WHERE NOME_DO_PRODUTO = 'Linha Refrescante - 1 Litro - Morango/Limão';
+SELECT * FROM itens_notas_fiscais WHERE CODIGO_DO_PRODUTO = '1101035' ORDER BY QUANTIDADE DESC;
