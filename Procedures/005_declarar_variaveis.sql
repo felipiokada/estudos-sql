@@ -4,6 +4,7 @@ USE `sucos_vendas`;
 DROP PROCEDURE IF EXISTS `Atribuindo_valores`;
 
 DELIMITER $$
+USE `sucos_vendas`$$
 CREATE PROCEDURE `Atribuindo_valores` ()
 BEGIN
 	DECLARE texto varchar(50) DEFAULT 'Nenhum valor';
