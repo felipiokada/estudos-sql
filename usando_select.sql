@@ -1,8 +1,8 @@
 /* USANDO O SELECT */
 /* No MySQL o comando TOP é o LIMIT */
 
-SELECT * FROM `sucos_vendas`.tabela_de_clientes LIMIT 2,3; /*Informa que pegará 3 registros a partir da terceira posicão, pois ele considera o primeiro elemento o 0*/
-SELECT * FROM `sucos_vendas`.notas_fiscais WHERE DATA_VENDA = '2017-01-01' LIMIT 10;
+SELECT * FROM sucos_vendas.tabela_de_clientes LIMIT 2,3; /*Informa que pegará 3 registros a partir da terceira posicão, pois ele considera o primeiro elemento o 0*/
+SELECT * FROM sucos_vendas.notas_fiscais WHERE DATA_VENDA = '2017-01-01' LIMIT 10;
 
 SELECT * FROM sucos_vendas.itens_notas_fiscais WHERE PRECO > 10;
 SELECT * FROM sucos_vendas.itens_notas_fiscais WHERE PRECO > 10;
