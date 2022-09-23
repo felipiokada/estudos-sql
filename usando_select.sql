@@ -1,6 +1,9 @@
 /* USANDO O SELECT */
 /* No MySQL o comando TOP é o LIMIT */
 
+SELECT * FROM tabela_de_clientes LIMIT 2,3; /*Informa que pegará 3 registros a partir da terceira posicão, pois ele considera o primeiro elemento o 0*/
+SELECT * FROM notas_fiscais WHERE DATA_VENDA = '2017-01-01' LIMIT 10;
+
 SELECT * FROM sucos_vendas.itens_notas_fiscais WHERE PRECO > 10;
 SELECT * FROM sucos_vendas.itens_notas_fiscais WHERE PRECO > 10;
 SELECT * FROM tbproduto WHERE QUANTIDADE_DE_UNIDADES <> 10; /*selecione todos os registros que sejam tenham qnt. de unidades diferentes de 10*/
