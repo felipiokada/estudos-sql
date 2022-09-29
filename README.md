@@ -1,4 +1,3 @@
-# estudos-sql
 Estudos sobre SQL
 
 CONTEÚDO RESUMIDO E COM FINS DE CONSULTA.
